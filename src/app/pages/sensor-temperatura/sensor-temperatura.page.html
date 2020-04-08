@@ -8,15 +8,23 @@
 </ion-header>
 
 <ion-content>
-<div>
+
+<div>  <!-- A la hora de añadir graficas el contenido debe ir dentro de una etiqueta <div> -->
+  
   <ion-card >
+    
       <ion-card-header>
-      <ion-card-subtitle>Temperatura de Abril</ion-card-subtitle>
-      <ion-card-title>Temperatura</ion-card-title>
-      </ion-card-header>
+        <ion-card-title>Temperatura</ion-card-title>
+        <!-- Este bototn nos abrira la ventana de dialog modal -->
+       <ion-button mat-button color="warning" (click)="showModal()" >Temperatura de Abril</ion-button>
+            </ion-card-header>
+      
       <ion-card-content>
-        <canvas id='lineCanvas'></canvas>
+        <canvas id='lineCanvas'></canvas>  <!-- Aqui se hace el llamado de la grafica-->
       </ion-card-content>
+
   </ion-card>
+
 </div>
+
 </ion-content>
