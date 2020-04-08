@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: SensorTemperaturaPage
-  },  {
+  },
+  {
     path: 'modal',
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   }

@@ -16,7 +16,7 @@ export class ModalPage implements OnInit {
   }
 
   cambiarTemp(tempMes){
-
+    //this.modalCtrl.dismiss();
     if (tempMes == 2){
       this.modalCtrl.dismiss({temp: 1});  // Cierra la ventana Dialog Modal y envia un argumento
     } else { 

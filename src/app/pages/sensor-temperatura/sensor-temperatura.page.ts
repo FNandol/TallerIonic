@@ -12,7 +12,7 @@ export class SensorTemperaturaPage implements OnInit{
 
   grafica: Chart;    // iniciacion del objeto grafica 
 
-  constructor(private lineChart: ElementRef, private modalCtrl: ModalController, mes: Number[]) {
+  constructor(private lineChart: ElementRef, private modalCtrl: ModalController) {
 
    }
 
@@ -25,6 +25,7 @@ export class SensorTemperaturaPage implements OnInit{
     let mes: Number[];
     if (n == 1){
         mes= [29, 23, 19, 22, 23, 25, 18, 15];
+        this.grafica.data.datasets.;
     } else { 
       if (n == 2){
         mes= [20, 23, 21, 29, 30, 35, 32, 33.5];
@@ -36,7 +37,7 @@ export class SensorTemperaturaPage implements OnInit{
 
 
   // ---------------------------------------------- Grafica ----------------------------------------------
-  createBarChart(/*n: Number*/) {
+  createBarChart() {
     this.grafica = new Chart( this.lineChart.nativeElement.querySelector('#lineCanvas'), {
       type: 'line',   //tipo de grafica
       data: {
