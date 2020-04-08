@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef} from '@angular/core';
 import { Chart } from 'chart.js';
+import {ModalController } from '@ionic/angular';
+import { ModalPage } from './modal/modal.page';
 
 @Component({
   selector: 'app-sensor-temperatura',
@@ -8,29 +10,48 @@ import { Chart } from 'chart.js';
 })
 export class SensorTemperaturaPage implements OnInit{
 
-  bars: Chart;
-  constructor(private barChart: ElementRef) { }
+  grafica: Chart;    // iniciacion del objeto grafica 
+
+  constructor(private lineChart: ElementRef, private modalCtrl: ModalController, mes: Number[]) {
+
+   }
 
   ngOnInit () {
     this.createBarChart();
   }
 
-  createBarChart() {
-    this.bars = new Chart( this.barChart.nativeElement.querySelector('#lineCanvas'), {
-      type: 'line',
+  //------------------------------------ seleccion de la temperatura del mes ----------------------------
+   /*tempMes(n: Number){
+    let mes: Number[];
+    if (n == 1){
+        mes= [29, 23, 19, 22, 23, 25, 18, 15];
+    } else { 
+      if (n == 2){
+        mes= [20, 23, 21, 29, 30, 35, 32, 33.5];
+    } else { 
+        mes= [39, 35, 31.5, 29, 35, 37, 36, 34];
+    }}
+    return mes;
+  }*/
+
+
+  // ---------------------------------------------- Grafica ----------------------------------------------
+  createBarChart(/*n: Number*/) {
+    this.grafica = new Chart( this.lineChart.nativeElement.querySelector('#lineCanvas'), {
+      type: 'line',   //tipo de grafica
       data: {
-        labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+        labels: ['1', '2', '3', '4', '5', '6', '7', '8'],   // eje x
         datasets: [{
-          label: 'Temperatura estandar del dia',
-          data: [35, 23, 21, 39, 30, 25, 26, 24],
-          backgroundColor: 'rgb(0, 0, 0)', // color area
+          label: 'Temperatura estandar del dia',  // Definicion del dato registrado
+          data: [29, 23, 19, 22, 23, 25, 18, 15], //this.tempMes.(n),  // Valores
+          backgroundColor: 'rgb(255, 121, 34)', // color area, o puntos valor
           borderColor: 'rgb(255, 121, 34)',// color linea
           borderWidth: 1,
           fill: false
         }]
       },
       options: {
-        scales: {
+        scales: { 
           yAxes: [{
             ticks: {
               beginAtZero: true
@@ -40,4 +61,21 @@ export class SensorTemperaturaPage implements OnInit{
       }
     });
   }
+  
+
+  // -------------------------------- Dialog Modal ------------------------------------------
+  async showModal(){
+    const modal = await this.modalCtrl.create({
+     component: ModalPage   //ventana que debe abrir
+    });
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss(); // Llega el argumento de modal
+    console.log(data);
+
+    //------------------------------
+    //this.createBarChart(data);
+
+  }
+
 }
