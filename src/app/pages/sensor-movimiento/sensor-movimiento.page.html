@@ -8,12 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <h2>Movimiento</h2>
 
   <ion-list>
     <div (click)="mostMes(i)" *ngFor="let p of mes; let i = index">
-      <ion-item>
-        <ion-label>{{p.nombre}}</ion-label>
+      <ion-item detail>  
+        <ion-label> {{p.nombre}}</ion-label>
       </ion-item>
 
       <ion-list>
