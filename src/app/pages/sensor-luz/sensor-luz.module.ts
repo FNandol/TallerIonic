@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { GaugeChartModule } from 'angular-gauge-chart';
 import { SensorLuzPageRoutingModule } from './sensor-luz-routing.module';
 
 import { SensorLuzPage } from './sensor-luz.page';
@@ -13,7 +13,8 @@ import { SensorLuzPage } from './sensor-luz.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SensorLuzPageRoutingModule
+    SensorLuzPageRoutingModule,
+    GaugeChartModule //gauge
   ],
   declarations: [SensorLuzPage]
 })

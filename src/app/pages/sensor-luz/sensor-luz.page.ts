@@ -6,9 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sensor-luz.page.scss'],
 })
 export class SensorLuzPage implements OnInit {
-
+public canvasWidth = 300;
+public needleValue = 65;
+public centralLabel = '';
+public name = 'Luminosidad';
+public bottomLabel = '65';
+public options = {
+    hasNeedle: false,
+    needleColor: 'gray',
+    needleUpdateSpeed: 1000,
+    arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+    arcDelimiters: [30],
+    rangeLabel: ['0', '1000'],
+    needleStartValue: 50,
+}
   constructor() { }
 
+  boton(){
+    
+  }
   ngOnInit() {
   }
 
