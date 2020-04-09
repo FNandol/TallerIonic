@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { SensorMovimientoPageRoutingModule } from './sensor-movimiento-routing.module';
 
 import { SensorMovimientoPage } from './sensor-movimiento.page';
+import { ModalPage } from './modal/modal.page';
+import { ModalPageModule } from './modal/modal.module';
 
 @NgModule({
+  entryComponents: [     // modal
+    ModalPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    SensorMovimientoPageRoutingModule
+    IonicModule.forRoot(),
+    SensorMovimientoPageRoutingModule,
+    ModalPageModule
   ],
   declarations: [SensorMovimientoPage]
 })

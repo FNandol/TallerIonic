@@ -24,16 +24,13 @@ export class SensorTemperaturaPage implements OnInit{
    tempMes(n: Number){
     let mes: any[];
     if (n == 1){
-      console.log("Hola");
         mes= [29, 23, 19, 22, 23, 25, 18, 15];
         this.grafica.data.datasets[0].data=mes;
     } else { 
       if (n == 2){
-        console.log("Hola2");
         mes= [20, 23, 21, 29, 30, 35, 32, 33.5];
         this.grafica.data.datasets[0].data=mes;
     } else {
-      console.log("Hola3"); 
         mes= [39, 35, 31.5, 29, 35, 37, 36, 34];
         this.grafica.data.datasets[0].data=mes;
     }}
@@ -78,7 +75,6 @@ export class SensorTemperaturaPage implements OnInit{
     await modal.present();
 
     const { data } = await modal.onDidDismiss(); // Llega el argumento de modal
-    console.log(data);
     this.tempMes(data);
     //------------------------------
     //this.createBarChart(data);

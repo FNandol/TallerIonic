@@ -16,13 +16,18 @@ public options = {
     needleColor: 'gray',
     needleUpdateSpeed: 1000,
     arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-    arcDelimiters: [30],
+    arcDelimiters: [6],
     rangeLabel: ['0', '1000'],
     needleStartValue: 50,
 }
   constructor() { }
 
   boton(){
+    var a = Math.floor( Math.random()* (999 - 1) + 1);
+    this.needleValue= a;
+    this.bottomLabel=a+"";
+    a=a/10;
+    this.options.arcDelimiters=[a];
     
   }
   ngOnInit() {

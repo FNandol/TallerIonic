@@ -9,4 +9,21 @@
 
 <ion-content>
   <h2>Movimiento</h2>
+
+  <ion-list>
+    <div (click)="mostMes(i)" *ngFor="let p of mes; let i = index">
+      <ion-item>
+        <ion-label>{{p.nombre}}</ion-label>
+      </ion-item>
+
+      <ion-list>
+        <div (click)="showModal(q)" [hidden]="mostrarmes[i]" *ngFor="let q of p.semanas">
+          <ion-item>
+            <h5>semana {{q.semana}} </h5>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+  </ion-list>
+
 </ion-content>

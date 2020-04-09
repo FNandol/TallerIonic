@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -10,6 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  
+
   public selectedIndex = 0;
   public appPages = [
     {
@@ -42,7 +45,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private alertCtrl: AlertController
   ) {
     this.initializeApp();
   }
@@ -53,6 +57,26 @@ export class AppComponent implements OnInit {
       this.splashScreen.show();
     });
   }
+  async presentConfirm(item) {
+    if(item.title=="Reportes"){
+      const alert = await  this.alertCtrl.create({
+        header: 'Atención',
+        message: 'Aun no se ha registrado ningun reporte, joven vuelva mas tarde' ,
+        buttons: [
+          {
+            text: 'Aceptar',
+            role: 'cancel',
+            handler: () => {
+              // console.log('Cancel clicked'); aqui se coloca lo que va a hacer el boton al presionarse
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+    
+  }
+  
 
   ngOnInit() {
    
